@@ -17,9 +17,9 @@ class Migration(migrations.Migration):
                 ('url', models.CharField(max_length=50)),
                 ('title', models.CharField(max_length=50)),
                 ('email', models.CharField(max_length=50)),
-                ('comment', models.TextField()),
+                ('text', models.TextField()),
                 ('timestamp', models.DateTimeField(auto_now_add=True)),
-                ('replyTo', models.CharField(max_length=50, null=True)),
+                ('replyTo', models.ForeignKey(to='core_app.Comment', null=True)),
             ],
             options={
                 'verbose_name': 'Comment',

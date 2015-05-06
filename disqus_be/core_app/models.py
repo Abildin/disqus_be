@@ -20,11 +20,11 @@ class Comment(models.Model):
     # Email of author
     email = models.CharField(max_length=50)
     # Comment body
-    comment = models.TextField()
+    text = models.TextField()
     # Comment add timestamp
     timestamp = models.DateTimeField(auto_now_add=True)
     # OPTIONAL: email for reply
-    replyTo = models.CharField(max_length=256, null=True)
+    replyTo = models.ForeignKey('self', null=True)
 
     def __unicode__(self):
         return "{0}: {1}".format(self.author, self.body)

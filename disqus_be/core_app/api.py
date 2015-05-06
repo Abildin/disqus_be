@@ -11,11 +11,14 @@ class CommentResource(ModelResource):
     """
     Comment's resource class for API
     """
+
+    replyTo = fields.ToOneField('core_app.api.CommentResource', attribute="replyTo", null=True, full=True)
+
     class Meta:
         # Object class of resource
         object_class = Comment
         # Fields that must by used
-        fields = ['url', 'title', 'email', 'comment', 'replyTo', 'timestamp']
+        fields = ['url', 'title', 'email', 'text', 'timestamp']
         # Method that will get objects collection
         queryset = Comment.objects.all()
         # Resource name that will be used while usage
