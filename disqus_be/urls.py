@@ -11,5 +11,6 @@ v1_api.register(CommentResource())
 
 urlpatterns = patterns(
     '',
-    url(r'^api/', include(v1_api.urls)),	# Pattern that will be used for identification of API
+    # Pattern that will be used for identification of API
+    url(r'^api/', include(v1_api.urls)),
 )
