@@ -19,7 +19,7 @@ class Comment(models.Model):
     title = models.CharField(max_length=50)
     # Email of author
     email = models.CharField(max_length=50)
-    # Comment body
+    # Comment text
     text = models.TextField()
     # Comment add timestamp
     timestamp = models.DateTimeField(auto_now_add=True)
@@ -27,4 +27,4 @@ class Comment(models.Model):
     replyTo = models.ForeignKey('self', null=True)
 
     def __unicode__(self):
-        return "{0}: {1}".format(self.author, self.body)
+        return "{0}: {1}".format(self.title, self.text)
